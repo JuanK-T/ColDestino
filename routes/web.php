@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Livewire\TagSites;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
 
-Route::get('posts/{post}', function ($post) {
-    return 'Jodiendo';
-})->name('posts.show');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
+Route::post('posts/{post}/enrolled', [PostController::class, 'enrolled'])->middleware('auth')->name('posts.enrolled');
+
+Route::get('tag/{tag}', [PostController::class, 'tag'])->name('posts.tag');

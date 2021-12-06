@@ -9,7 +9,7 @@ class Image extends Model
 {
 
     // ASIGNACION MASIVA
-    protected $guarded = ['id'];
+    protected $fillable = ['url'];
 
     use HasFactory;
 

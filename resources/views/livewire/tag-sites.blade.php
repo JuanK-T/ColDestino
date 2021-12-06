@@ -13,7 +13,7 @@
                             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://cdn.pixabay.com/photo/2016/05/27/00/33/laguna-1418870_960_720.jpg')">
                             <div class="px-2">
                                 <h1 class="text-lg text-white leading-8 font-bold mt-2">
-                                    <a href="#">{{$etiqueta->name}}</a>
+                                    <a href="{{route('posts.tag', $etiqueta)}}">{{$etiqueta->name}}</a>
                                 </h1>
                                 <p class="text-sm text-white">{{$etiqueta->post_count}} Publicaciones</p>
                             </div>

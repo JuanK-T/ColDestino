@@ -9,23 +9,7 @@
                     Aquí en ColDestino encontraras publicaciones que te ayudaran a disfrutar mejor de tus viajes en Colombia
                 </p>
 
-                <div class="flex items-center bg-white mt-2" x-data="{ search: '' }">
-                    <div class="w-full">
-                        <input type="search" class="w-full px-4 text-gray-900 border-0 border-opacity-0 focus:outline-none"
-                            placeholder="search" x-model="search">
-                    </div>
-                    <div>
-                        <button type="submit" class="flex items-center justify-center w-12 h-12 text-gray-100"
-                            :class="(search.length > 0) ? 'bg-purple-500' : 'bg-gray-500 cursor-not-allowed'"
-                            :disabled="search.length == 0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+                @livewire('search')
             </div>
         </div>
     </section>
@@ -55,31 +39,41 @@
                 @foreach($posts as $post)
                     <article class="w-full h-80 bg-cover bg-center @if ($loop->first)
                         md:col-span-2
-                    @endif" style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url({{Storage::url($post->image->url)}})">
-                    
-                    <div class="w-full h-full px-8 flex flex-col justify-center">
-                        <div class="flex">
-                            <ul class="flex text-sm mr-auto">
-                                <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 1 ? 'yellow' : 'gray'}}-400"></i></li>
-                                <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 2 ? 'yellow' : 'gray'}}-400"></i></li>
-                                <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 3 ? 'yellow' : 'gray'}}-400"></i></li>
-                                <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 4 ? 'yellow' : 'gray'}}-400"></i></li>
-                                <li class="mr-1"><i class="fas fa-star text-{{$post->rating == 5 ? 'yellow' : 'gray'}}-400"></i></li>
-                            </ul>
-                            <p class="text-sm text-gray-300 ml-auto">
-                                <i class="fas fa-users"></i>
-                                ({{$post->visits_count}})
-                            </p>
-                        </div>
+                        @endif" style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url(@if ($post->image)
+                                {{Storage::url($post->image->url)}}
+                            @else
+                                https://cdn.pixabay.com/photo/2019/09/07/02/25/city-4457801_960_720.jpg
+                            @endif)">
+
+                        <div class="w-full h-full px-8 flex flex-col justify-center">
+                            <div class="flex">
+                                <ul class="flex text-sm mr-auto">
+                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 1 ? 'yellow' : 'gray'}}-400"></i></li>
+                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 2 ? 'yellow' : 'gray'}}-400"></i></li>
+                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 3 ? 'yellow' : 'gray'}}-400"></i></li>
+                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 4 ? 'yellow' : 'gray'}}-400"></i></li>
+                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating == 5 ? 'yellow' : 'gray'}}-400"></i></li>
+                                </ul>
+                                <p class="text-sm text-gray-300 ml-auto">
+                                    <i class="fas fa-users"></i>
+                                    ({{$post->visits_count}})
+                                </p>
+                            </div>
 
                             <h1 class="text-4xl text-white leading-8 font-bold">
-                                <a href="{{route('posts.show', $post)}}">
-                                    {{Str::limit($post->name, 30)}}
-                                </a>
+                                @auth
+                                    <form class="mr-auto flex text-right" action="{{route('posts.enrolled', $post)}}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="mr-auto text-left text-4xl text-white leading-8 font-bold">{{Str::limit($post->name, 30)}}</button>
+                                    </form>
+                                @else
+                                    <a href="{{route('posts.show', $post)}}">
+                                        {{Str::limit($post->name, 30)}}
+                                    </a>
+                                @endauth
                             </h1>
-                            <p class="text-base text-white">
-                                {{Str::limit($post->extract, 50)}}
-                            </p>
+                            <div class="text-base text-white">{!!Str::limit($post->extract, 50)!!}</div>
                             <i><tt class="text-xs text-white"><Strong>By: </Strong> {{$post->user->name}}</tt></i>
                         </div>
                     </article>

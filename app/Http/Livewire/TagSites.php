@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Tag;
 use Livewire\Component;
 
 class TagSites extends Component

@@ -8,7 +8,7 @@
         [
             'name' => 'Publicaciones',
             'route' => route('posts.index'),
-            'active' => request()->routeIs('posts.index')
+            'active' => request()->routeIs('posts.*')
         ],
         [
             'name' => 'Blog',
@@ -19,7 +19,20 @@
             'name' => 'Contactanos',
             'route' => '#',
             'active' => false
-        ]
+        ],
+    ];
+
+    $nav_links_admin = [
+        [
+            'name' => 'Categorias',
+            'route' => route('admin.categories.index'),
+            'active' => request()->routeIs('admin.categories.*')
+        ],
+        [
+            'name' => 'Tus Posts',
+            'route' => route('admin.posts.index'),
+            'active' => request()->routeIs('admin.posts.*')
+        ],
     ];
 @endphp
 
@@ -93,9 +106,17 @@
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                    <button class="flex text-sm border-1 border-light border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                                    </button>
+                                    <span class="inline-flex rounded-md ">
+                                        <button class="flex text-sm border-2 border-light p-1 border-gray-200 rounded-full focus:outline-none focus:border-gray-300 transition">
+                                            <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                        </button>
+                                        <button type="button" class="inline-flex items-center px-1 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                {{ Auth::user()->name }}
+                                            <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </span>
                                 @else
 
                                     <span class="inline-flex rounded-md ">
@@ -261,11 +282,15 @@
     </div>
 </nav>
 <header class="bg-white hidden shadow sm:flex" id="menu-navegacion">
-    <div class="max-w-7xl  px-14">
-
+    <div class="max-w-7xl px-14">
         @foreach ($nav_links as $nav_link)
             <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                 {{ $nav_link['name'] }}
+            </x-jet-nav-link>
+        @endforeach
+        @foreach ($nav_links_admin as $nav_link_admin)
+            <x-jet-nav-link href="{{ $nav_link_admin['route'] }}" :active="$nav_link_admin['active']">
+                {{ $nav_link_admin['name'] }}
             </x-jet-nav-link>
         @endforeach
     </div>

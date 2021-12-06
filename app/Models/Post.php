@@ -28,10 +28,20 @@ class Post extends Model
         }
     }
 
+    // QueryScopes
+    public function scopeCategory($query, $category_id)
+    {
+        if($category_id){
+            return $query->where('category_id', $category_id);
+        }
+    }
+    // FALTA PARA TAGS
+
+
     // URL Amigable
     public function getRouteKeyName()
     {
-        return "slug";   
+        return "slug";
     }
 
     // RELACION MUCHOS A UNO

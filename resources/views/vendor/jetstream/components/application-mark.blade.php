@@ -1,4 +1,4 @@
-<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" width="100pt" height="500pt" viewBox="0 0 1585.31 749.05"><defs>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" width="100pt" height="50pt" viewBox="0 0 1585.31 749.05"><defs>
     <style>.cls-1{fill:none;}.cls-2{fill:#fad600;}.cls-3{fill:#3a9fd9;}.cls-4{fill:#a54d17;}.cls-5{fill:#ea5641;}.cls-6{fill:#d44435;}.cls-7{fill:#fff;}.cls-8{font-size:263.43px;}.cls-8,.cls-9{fill:#5a5a5a;font-family:BerlinSansFB-Reg, Berlin Sans FB;}.cls-9{font-size:384.13px;}.cls-10{fill:#1d1d1b;}</style>
     </defs>
     <path class="cls-1" d="M612.41,392.09" transform="translate(-170.72 -84.74)"/>

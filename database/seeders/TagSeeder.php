@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Image;
 use App\Models\Tag;
+use Database\Factories\TagImageFactory;
 use Illuminate\Database\Seeder;
 
 class TagSeeder extends Seeder
@@ -75,5 +77,7 @@ class TagSeeder extends Seeder
             'slug' => 'cali',
             'color' => 'yellow'
         ]);
+
+        Tag::factory(8)->create();
     }
 }
