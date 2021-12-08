@@ -18,4 +18,12 @@ class HomeController extends Controller
 
         return view('welcome', compact('posts', 'tags'));
     }
+
+    public function mostrarBlog(){
+    	return view('blog.index');
+    }
+
+    public function mostrarContact(){
+    	return view('contact.index');
+    }
 }

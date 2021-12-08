@@ -12,13 +12,13 @@
         ],
         [
             'name' => 'Blog',
-            'route' => '#',
-            'active' => false
+            'route' => route('blog.index'),
+            'active' => request()->routeIs('blog.index')
         ],
         [
             'name' => 'Contactanos',
-            'route' => '#',
-            'active' => false
+            'route' => route('contact.index'),
+            'active' => request()->routeIs('contact.index')
         ],
         [
             'name' => 'Tus Posts',

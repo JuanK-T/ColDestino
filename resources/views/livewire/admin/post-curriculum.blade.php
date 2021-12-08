@@ -31,13 +31,13 @@
 
                                     <div class="mt-3">
                                         <textarea wire:model="section.description"
-                                        aria-describedby="descripcion"
+                                        aria-describedby="descripcion" placeholder="Este es el contenido de la sección"
                                         @if ($item->description)
                                             rows="10"
                                         @else
                                             rows="3"
                                         @endif
-                                        placeholder="Este es el contenido de la sección"
+                                        
                                         class="block mt-1 w-full h-auto border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
                                         </textarea>
                                         <small id="descriptcion" class=" text-gray-600 font-medium">
@@ -102,8 +102,11 @@
                                 <div class="mt-3">
                                     <textarea wire:model="description"
                                     class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
-                                    name="" id="" placeholder="Escribe el Subtitulo de la Seccion"></textarea>
+                                    name="" id="" rows="10" placeholder="Escribe el Subtitulo de la Seccion"></textarea>
                                 </div>
+                                <small id="descriptcion" class=" text-gray-600 font-medium">
+                                    Agrega el contenido del seccion
+                                </small>
                             @enderror
                         </div>
                         <div class="flex justify-end mt-3">

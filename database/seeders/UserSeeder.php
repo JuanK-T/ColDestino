@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'user_id' => 1
         ]);
 
-        $users = User::factory(10)->create();
+        $users = User::factory(3)->create();
 
         foreach($users as $user){
             Profile::factory(1)->create([

@@ -23,6 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('blog', [HomeController::class, 'mostrarBlog'])->name('blog.index');
+Route::get('contact', [HomeController::class, 'mostrarContact'])->name('contact.index');
 
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
