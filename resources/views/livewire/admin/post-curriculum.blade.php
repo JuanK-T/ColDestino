@@ -1,6 +1,4 @@
 <div>
-
-
     <div class="text-gray-900 bg-gray-200 overflow-hidden shadow-x1 sm:rounded-lg px-4 py-4">
         <h1 class="text-3xl font-bold">Secciones del Post</h1>
         <hr class="mt-2 mb-6">

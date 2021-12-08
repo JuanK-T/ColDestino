@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         // Crear NuevaCarpeta
 
-        Storage::deleteDirectory('posts');
-        Storage::deleteDirectory('tags');
+        Storage::deleteDirectory('public/posts');
+        Storage::deleteDirectory('public/tags');
 
-        Storage::makeDirectory('posts');
-        Storage::makeDirectory('tags');
+        Storage::makeDirectory('public/posts');
+        Storage::makeDirectory('public/tags');
 
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);

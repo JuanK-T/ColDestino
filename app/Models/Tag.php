@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    // URL Amigable
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
     // Asignacion Masiva
     protected $fillable = ['name', 'slug', 'color'];
     // Cantidad de Post Leídos

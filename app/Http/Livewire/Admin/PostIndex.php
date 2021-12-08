@@ -13,6 +13,7 @@ class PostIndex extends Component
     public $search;
     public function render()
     {
+        
         $posts = Post::where('name', 'LIKE', '%'.$this->search.'%')
             ->where('user_id', auth()->user()->id)
             ->latest('id')

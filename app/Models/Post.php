@@ -19,7 +19,7 @@ class Post extends Model
     const PUBLICADO = 3;
 
     // Solicitu crear un nuevo atributo
-    public function getRatingAttribute(){
+    public function getReviewAttribute(){
         if($this->reviews_count){
             // Me retorna la coleccion
             return round($this->reviews->avg('rating'), 1);

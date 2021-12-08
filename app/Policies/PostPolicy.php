@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Post;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -31,6 +32,14 @@ class PostPolicy
             return true;
         }else{
             return false;
+        }
+    }
+
+    public function valued(User $user, Post $post){
+        if(Review::where('user_id', $user->id)->where('post_id', $post->id)->count()){
+            return false;            
+        }else{
+            return true;
         }
     }
 }

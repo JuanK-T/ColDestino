@@ -49,13 +49,13 @@
                                     @switch($post->status)
                                         @case(3)
                                             <a title="Ver el post" href="{{route('posts.show', $post)}}" class="cursor-pointer text-base font-semibold text-gray-900">
-                                                {{$post->name}}
+                                                {{Str::limit($post->name, 30)}}
                                             </a>
                                         @break
 
                                         @default
                                             <div class="text-base font-semibold text-gray-900">
-                                                {{$post->name}}
+                                                {{Str::limit($post->name, 30)}}
                                             </div>
                                     @endswitch
                                     <div class="text-sm text-gray-500">

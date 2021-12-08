@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Audience;
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\Reply;
+use App\Models\Review;
 use App\Models\Section;
 use Illuminate\Database\Seeder;
 
@@ -17,9 +19,21 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        $posts = Post::factory(120)->create();
+        $posts = Post::factory(100)->create();
 
         foreach($posts as $post){
+
+            $reviews = Review::factory(2)->create([
+                'post_id' => $post->id
+            ]);
+
+
+            foreach($reviews as $review){
+                Reply::factory(1)->create([
+                    'review_id' => $review->id
+                ]);
+            }
+
             Image::factory(1)->create([
                 'imageable_id' => $post->id,
                 'imageable_type' => Post::class
@@ -31,11 +45,7 @@ class PostSeeder extends Seeder
                 rand(9,18)
             ]);
 
-            Audience::factory(4)->create([
-                'post_id' => $post->id
-            ]);
-
-            Section::factory(4)->create([
+            Section::factory(2)->create([
                 'post_id' => $post->id
             ]);
         }
