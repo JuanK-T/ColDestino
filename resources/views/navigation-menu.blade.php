@@ -20,6 +20,11 @@
             'route' => '#',
             'active' => false
         ],
+        [
+            'name' => 'Tus Posts',
+            'route' => route('admin.posts.index'),
+            'active' => request()->routeIs('admin.posts.*')
+        ],
     ];
 
     $nav_links_admin = [
@@ -29,10 +34,10 @@
             'active' => request()->routeIs('admin.categories.*')
         ],
         [
-            'name' => 'Tus Posts',
-            'route' => route('admin.posts.index'),
-            'active' => request()->routeIs('admin.posts.*')
-        ],
+            'name' => 'Etiquetas',
+            'route' => route('admin.tags.index'),
+            'active' => request()->routeIs('admin.tags.*')
+        ],   
     ];
 @endphp
 

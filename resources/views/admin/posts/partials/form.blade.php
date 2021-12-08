@@ -63,8 +63,7 @@
             <small id="categoria" class=" text-gray-600 font-medium">
                 Selecciona una categoría
             </small>
-        @enderror
-        
+        @enderror    
     </div>
 
     <div class="mt-3">

@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+
+    protected $guarded = ['id', 'created_at', 'update_at'];
+
     // URL Amigable
     public function getRouteKeyName()
     {
@@ -24,7 +27,7 @@ class Tag extends Model
     }
 
     // RELACION UNO A UNO POLIMORFICA
-    public function image_tag()
+    public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
     }
