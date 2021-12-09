@@ -7,11 +7,13 @@
                 </h1>
             </div>
 
+            @can('admin.tags.create')
             <div class="my-4">
                 <a href="{{route('admin.tags.create')}}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 my-3"> 
                     Agregar Etiquetas
                 </a>
             </div>
+            @endcan
 
            	<table class="min-w-full text-lg shadow-md rounded divide-y divide-gray-200">
 	            <thead class="bg-gray-50">
@@ -57,9 +59,12 @@
 	                        
 	                        <td class="whitespace-nowrap text-center text-lg font-medium">
 	                        	<div class="flex">
+		                        	@can('admin.tags.edit')
 		                        	<a title="Editar" href="{{route('admin.tags.edit', $tag)}}" class="mr-3 bg-blue-500 hover:bg-blue-700 text-white px-3 py-2 rounded-full focus:outline-none focus:shadow-outline">
 	                                	<i class="fas fa-edit"></i>
 	                            	</a>
+		                        	@endcan
+	                            	@can('admin.tags.destroy')
 	                            	<form class="formulario-eliminar" action="{{route('admin.tags.destroy', $tag)}}" method="POST">
 		                                @csrf
 		                                @method('delete')
@@ -67,6 +72,7 @@
 		                                    <i class="fas fa-trash-alt"></i>
 		                                </button>
 		                            </form>
+	                            	@endcan
 	                        	</div>
 	                        </td>
 	                    </tr>

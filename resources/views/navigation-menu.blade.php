@@ -37,7 +37,12 @@
             'name' => 'Etiquetas',
             'route' => route('admin.tags.index'),
             'active' => request()->routeIs('admin.tags.*')
-        ],   
+        ],
+        [
+            'name' => 'Usuarios',
+            'route' => route('admin.users.index'),
+            'active' => request()->routeIs('admin.users.*')
+        ],      
     ];
 @endphp
 
@@ -293,11 +298,30 @@
                 {{ $nav_link['name'] }}
             </x-jet-nav-link>
         @endforeach
-        @foreach ($nav_links_admin as $nav_link_admin)
-            <x-jet-nav-link href="{{ $nav_link_admin['route'] }}" :active="$nav_link_admin['active']">
-                {{ $nav_link_admin['name'] }}
+       
+       @can('admin.categories.index')
+            <x-jet-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')" >
+                    Categorias
             </x-jet-nav-link>
-        @endforeach
+        @endcan
+
+        @can('admin.tags.index')
+            <x-jet-nav-link href="{{route('admin.tags.index')}}" :active="request()->routeIs('admin.tags.*')">
+                Etiquetas
+            </x-jet-nav-link>
+        @endcan
+
+        @can('admin.roles.index')
+        <x-jet-nav-link href="{{route('admin.roles.index')}}" :active="request()->routeIs('admin.roles.*')">
+            Roles
+        </x-jet-nav-link>
+        @endcan
+
+        @can('admin.users.index')
+        <x-jet-nav-link href="{{route('admin.users.index')}}" :active="request()->routeIs('admin.users.*')">
+            Usuarios
+        </x-jet-nav-link>
+        @endcan
     </div>
 </header>
 

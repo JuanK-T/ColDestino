@@ -7,11 +7,13 @@
                 </h1>
             </div>
 
-            <div class="my-4">
-                <a href="{{route('admin.categories.create')}}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 my-3">
-                    Agregar Categoría
-                </a>
-            </div>
+            @can('admin.categories.create')
+                <div class="my-4">
+                    <a href="{{route('admin.categories.create')}}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 my-3">
+                        Agregar Categoría
+                    </a>
+                </div>
+            @endcan
 
             <div class="px-3 py-4 flex justify-center">
                 <table class="w-full text-lg bg-white shadow-md rounded mb-4 table-fixed">
@@ -28,17 +30,21 @@
                                 <td class="p-3 px-5">{{$category->id}}</td>
                                 <td class="p-3 px-5">{{$category->name}}</td>
                                 <td class="p-3 px-5 flex justify-start">
-                                    <button type="button" class="mr-3 text-base bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                    @can('admin.categories.edit')
+                                        <button type="button" class="mr-3 text-base bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                         <a href="{{route('admin.categories.edit', $category)}}">Editar</a>
                                     </button>
+                                    @endcan
 
-                                    <form class="formulario-eliminar" action="{{route('admin.categories.destroy', $category)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="text-base bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-                                            Eliminar
-                                        </button>
-                                    </form>
+                                    @can('admin.categories.destroy')
+                                        <form class="formulario-eliminar" action="{{route('admin.categories.destroy', $category)}}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="text-base bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
+                                                Eliminar
+                                            </button>
+                                        </form>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach

@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('public/posts');
         Storage::makeDirectory('public/tags');
 
+        $this->call(RoleSeeder::class);
+
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(TagSeeder::class);
