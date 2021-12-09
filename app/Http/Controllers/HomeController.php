@@ -16,6 +16,7 @@ class HomeController extends Controller
         // Recuperar Etiquetas
         $tags = Tag::all();
 
+        // return $posts;
         return view('welcome', compact('posts', 'tags'));
     }
 

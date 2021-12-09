@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="hidden">
         <div class="bg-gray-600 top-16 top-14 top-20 top-11 top-10 top-9"></div>
-        <div class="bg-red-600"></div>
+        <div class="bg-red-600 text-yellow-400 text-gray-400"></div>
         <div class="bg-yellow-600"></div>
         <div class="bg-green-600"></div>
         <div class="bg-blue-600"></div>

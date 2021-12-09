@@ -49,8 +49,8 @@
                         <div class="w-full h-full px-8 flex flex-col justify-center">
                             <div class="flex">
                                 <ul class="flex text-sm mr-auto">
-                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 1 ? 'yellow' : 'gray'}}-400"></i></li>
-                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 2 ? 'yellow' : 'gray'}}-400"></i></li>
+                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 1 ? 'yellow': 'gray'}}-400"></i></li>
+                                    <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 2 ? 'yellow': 'gray'}}-400"></i></li>
                                     <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 3 ? 'yellow' : 'gray'}}-400"></i></li>
                                     <li class="mr-1"><i class="fas fa-star text-{{$post->rating >= 4 ? 'yellow' : 'gray'}}-400"></i></li>
                                     <li class="mr-1"><i class="fas fa-star text-{{$post->rating == 5 ? 'yellow' : 'gray'}}-400"></i></li>

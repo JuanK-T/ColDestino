@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Asignar Un Rol</title>
-</head>
-<body>
-    @extends('sidebar')
-    @section('contenido')
+<x-app-layout>
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
         <div class="text-gray-900 bg-gray-200 overflow-hidden shadow-x1 sm:rounded-lg px-4 py-4">
             <div class="p-4 flex">
@@ -38,7 +28,6 @@
             </div>
         </div>
     </div>
-    @endsection
 
 @if(session('info'))
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -51,5 +40,4 @@
     })
 </script>
 @endif
-</body>
-</html>
+</x-app-layout>

@@ -76,9 +76,10 @@
                                 <a href="" class="font-semibold text-blue-600 text-sm">{{'@'.Str::slug($post->user->name, '')}}</a>
                             </div>
                             </div>
-                            <div id="quote">
-                            <q class="italic text-gray-600">{{$post->user->profile->biography}}</q>
-                            </div>
+                                <div id="quote">
+                                <q class="italic text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</q>
+                                </div>
 
 
                             {{-- @can('enrolled', $post)

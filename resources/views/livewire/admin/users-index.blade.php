@@ -12,11 +12,13 @@
                 name="search" placeholder="Buscar" wire:model="search">
         </div>
 
+        @can('admin.roles.index')
         <div class="my-4">
             <a href="{{route('admin.roles.index')}}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 my-3">
                 Ver roles Roles
             </a>
         </div>
+        @endcan
 
  @if ($users->count())
         <div class="px-3 py-4 flex justify-center">
@@ -36,9 +38,11 @@
                             <td class="p-3 px-5">{{$user->name}}</td>
                             <td class="p-3 px-5">{{$user->email}}</td>
                             <td class="p-3 px-5 flex justify-center">
+                                @can('admin.users.edit')
                                 <a href="{{route('admin.users.edit', $user)}}" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">
                                     Editar
                                 </a>
+                                @endcan 
                             </td>
                         </tr>
                     @endforeach
